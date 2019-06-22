@@ -2,6 +2,22 @@ import React from 'react'
 
 import './Editor.css'
 
+import Panel from './UI/Panel/Panel'
+
+function EditorUI() {
+
+    return (
+
+        <div id="editor-ui">
+
+            <Panel />
+
+        </div>
+
+    );
+
+}
+
 
 function Editor() {
 
@@ -10,7 +26,9 @@ function Editor() {
         <div id="editor">
 
             <div id="editor-landscape">
-                <h1>Welcome to the editor!</h1>
+                
+                <EditorUI />
+
             </div>
 
             <div id="editor-portrait">
@@ -21,8 +39,6 @@ function Editor() {
                     <i id="landscape-icon" className="fas fa-mobile-alt"></i>
                 </div>
             </div>
-
-
 
         </div>
 
