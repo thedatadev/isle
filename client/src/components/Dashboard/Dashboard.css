@@ -1,6 +1,7 @@
 /* Main */
 #main {
     height: 90vh;
+    overflow-x: scroll;
 }
 
 /* Tabs (nav) */

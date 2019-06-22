@@ -1,11 +1,12 @@
 // Dependencies
-import React from 'react';
+import React from 'react'
 
 
 import './Dashboard.css'
 
 
 // Subcomponents
+import Rooms from '../Main/Rooms/Rooms'
 
 function Main() {
 
@@ -13,7 +14,7 @@ function Main() {
 
         <div id="main">
 
-        
+            <Rooms />
 
         </div>
 
@@ -42,8 +43,8 @@ function Tabs() {
 
         <div id="tabs">
 
-            <Tab name="models"  icon="fas fa-cubes" />
             <Tab name="rooms"   icon="fas fa-vr-cardboard" />
+            <Tab name="models"  icon="fas fa-cubes" />
             <Tab name="account" icon="fas fa-user-circle" />
 
         </div>
