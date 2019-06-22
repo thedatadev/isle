@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 
 import './Rooms.css'
 
@@ -56,13 +56,13 @@ function NewRoom() {
 
     return (
 
-        <div id="new-room">
+        <Link id="new-room" to="/editor">
 
             <span>Create room</span>
 
             <i className="fas fa-plus-circle"></i>
 
-        </div>
+        </Link>
 
     );
 

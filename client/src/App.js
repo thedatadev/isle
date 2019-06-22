@@ -1,13 +1,17 @@
+
 // Dependencies
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
+
 // Assets
 import './App.css';
+
 
 // Components
 import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
+import Editor from './components/Editor/Editor';
 
 
 
@@ -22,6 +26,8 @@ function Mobile() {
         <Route exact path="/" component={Home} />
 
         <Route path="/user" component={Dashboard} />
+
+        <Route path="/editor" component={Editor} />
 
       </div>
 
@@ -40,11 +46,11 @@ function isMobile() {
 
   }
 
-  const maxWidth = 480;
+  const maxMobileWidth = 480;
 
   const width = isPortrait() ? window.innerWidth : window.innerHeight;
 
-  return width < maxWidth;
+  return width < maxMobileWidth;
 
 }
 

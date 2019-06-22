@@ -1,0 +1,30 @@
+
+/* Orientation handling */
+#editor-portrait, #editor-landscape  {
+    display: none;
+}
+
+
+@media screen and ( orientation: portrait ) {
+
+    #editor-portrait {
+        display: block;
+    }
+
+    #editor-landscape {
+        display: none;
+    }
+
+}
+
+@media screen and ( orientation: landscape ) {
+
+    #editor-portrait {
+        display: none;
+    }
+
+    #editor-landscape {
+        display: block;
+    }
+
+}
