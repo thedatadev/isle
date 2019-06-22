@@ -1,7 +1,38 @@
+/* Editor */
+#editor {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 
 /* Orientation handling */
 #editor-portrait, #editor-landscape  {
     display: none;
+}
+
+#editor-portrait {
+    text-align: center;
+    margin-top: 40vh;
+    font-size: 1.4em;
+    font-weight: 100;
+    color: coral;
+}
+
+#portrait-to-landscape {
+    margin-top: 15px;
+}
+
+#portrait-to-landscape > * {
+    font-size: 2em;
+    margin: 10px 20px;
+    color: rgb(104, 98, 117);
+}
+
+#landscape-arrow {
+    color: coral;
+}
+
+#landscape-icon {
+    transform: rotate(90deg);
 }
 
 
