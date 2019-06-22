@@ -1,0 +1,63 @@
+/* Account */
+#account {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#avatar {
+    padding: 100px 0 20px 0;
+    text-align: center;
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(100, 95, 126);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+#fullname {
+    font-size: 1.3em;
+}
+
+#location {
+    font-size: 1.1em;
+    margin-top: 4px;
+}
+
+#location i {
+    margin-right: 6px;
+    color: coral;
+}
+
+#credentials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    padding-top: 30px; 
+}
+
+.credential {
+    margin: 20px auto;
+}
+
+.credential-label {
+    color: rgb(80, 77, 95);
+}
+
+.credential-label, .credential-value {
+    font-size: 1.4em;
+}
+
+.credential-value:focus {
+    outline: none;
+}
+
+#update-credentials {
+    background-color: coral;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1.2em;
+    margin-top: 12px;
+}
