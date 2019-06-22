@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react'
-
+import { BrowserRouter, Route, NavLink } from 'react-router-dom'
 
 import './Dashboard.css'
 
@@ -16,11 +16,11 @@ function Main() {
 
         <div id="main">
 
-            {/* <Rooms /> */}
+            <Route exact path="/rooms" component={Rooms} />
 
-            {/* <Models /> */}
+            <Route exact path="/models" component={Models} />
 
-            <Account />
+            <Route exact path="/account" component={Account} />
 
         </div>
 
@@ -33,10 +33,13 @@ function Tab(props) {
 
     return (
 
-        <div className="tab">
+        <NavLink className="tab" to={"/" + props.name}>
+
             <i className={ "tab-icon " + props.icon }></i>
+
             <div className="tab-name">{props.name}</div>
-        </div>
+
+        </NavLink>
 
     );
 
@@ -66,13 +69,17 @@ function Dashboard() {
 
     return (
 
-        <div id="dashboard">
+        <BrowserRouter>
 
-            <Main />
+            <div id="dashboard">
 
-            <Tabs />
+                <Main />
 
-        </div>
+                <Tabs />
+
+            </div>
+
+        </BrowserRouter>
 
     );
 

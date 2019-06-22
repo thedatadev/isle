@@ -13,8 +13,14 @@
 }
 
 .tab {
+    text-decoration: none;
+    display:block;
     padding: 10px;
     text-align: center;
+}
+
+.tab.active i {
+    color: coral;
 }
 
 .tab-icon {
@@ -26,9 +32,4 @@
     font-family: Helvetica, sans-serif;
     margin-top: 4px;
     color: rgb(90, 94, 141);
-}
-
-/* TODO: Implement with JavaScript */
-#active-tab {
-    color: coral;
 }
