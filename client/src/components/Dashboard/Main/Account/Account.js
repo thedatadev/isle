@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Account.css'
 
@@ -52,6 +53,8 @@ function Credentials() {
             <Credential label="password" inputType="password" inputValue="password" />
 
             <div id="update-credentials">Update</div>
+
+            <Link to="/" id="sign-out">Sign out</Link>
 
         </div>
 

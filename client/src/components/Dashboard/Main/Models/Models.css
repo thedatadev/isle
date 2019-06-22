@@ -15,13 +15,13 @@
     width: 100%;
     border-radius: 30px;
     padding: 10px 16px;
-    border: 3px solid rgba(52, 181, 241, 0.137);
+    border: 3px solid rgba(255, 127, 80, 0.336);
     transition: border 0.2s ease-in-out;
 }
 
 #search input:focus {
     outline: none;
-    border: 3px solid rgba(52, 181, 241, 0.767);
+    border: 3px solid coral;
 }
 
 /* Results */
