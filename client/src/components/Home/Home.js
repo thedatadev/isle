@@ -82,12 +82,12 @@ function Access() {
 }
 
 // Main component
-function Dashboard() {
+function Home() {
 
 
     return (
 
-        <div id="dashboard">
+        <div id="home">
 
             <Logo />
 
@@ -100,4 +100,4 @@ function Dashboard() {
 }
 
 
-export default Dashboard;
+export default Home;

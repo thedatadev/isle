@@ -1,0 +1,33 @@
+/* Main */
+#main {
+    height: 90vh;
+}
+
+/* Tabs (nav) */
+#tabs {
+    height: 10vh;
+    display: flex;
+    background: white;
+    justify-content: space-around;
+}
+
+.tab {
+    padding: 10px;
+    text-align: center;
+}
+
+.tab-icon {
+    font-size: 2em;
+    color: rgba(0, 0, 0, 0.123);
+}
+
+.tab-name {
+    font-family: Helvetica, sans-serif;
+    margin-top: 4px;
+    color: rgb(90, 94, 141);
+}
+
+/* TODO: Implement with JavaScript */
+#active-tab {
+    color: coral;
+}
