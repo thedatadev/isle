@@ -60,7 +60,7 @@ function NewRoom() {
 
             <span>Create room</span>
 
-            <i class="fas fa-plus-circle"></i>
+            <i className="fas fa-plus-circle"></i>
 
         </div>
 

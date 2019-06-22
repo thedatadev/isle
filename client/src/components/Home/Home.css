@@ -23,7 +23,7 @@
     position: relative;
     top: 40px;
     left: 40px;
-    color: rgb(201, 201, 201);
+    color: coral;
     font-weight: 400;
 }
 
@@ -31,6 +31,7 @@
 #access {
     display: flex;
     height: 50vh;
+    background-color: coral;
 }
 
 #access > * {
@@ -42,18 +43,17 @@
 }
 
 .access-option {
+    display: block;
+    text-decoration: none;
     min-width: 130px;
     text-align: center;
     padding: 12px 0;
     border-radius: 9px;
     font-family: Helvetica, sans-serif;
-    box-shadow: 0 16px 8px -10px rgba(0, 0, 0, 0.123);
-    border: 1px solid rgba(0, 0, 0, 0.123);
+    box-shadow: 0 16px 8px -10px rgba(0, 0, 0, 0.274);
     color: rgb(91, 84, 121);
     font-size: 1.3em;
     font-weight: 100;
+    background-color: white;
 }
 
-/* .login-option {
-    margin-top: 16px;
-} */

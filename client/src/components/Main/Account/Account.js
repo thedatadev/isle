@@ -13,7 +13,7 @@ function Avatar(props) {
             <div id="fullname">{ props.fullname }</div>
 
             <div id="location">
-                <i class="fas fa-map-marker-alt"></i>
+                <i className="fas fa-map-marker-alt"></i>
                 <span>{ props.location }</span>
             </div>
 
