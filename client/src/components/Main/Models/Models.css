@@ -1,0 +1,61 @@
+/* Search */
+#search {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: block;
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+#search input {
+    border: none;
+    font-size: 2em;
+    width: 100%;
+    border-radius: 30px;
+    padding: 10px 16px;
+    border: 3px solid rgba(52, 181, 241, 0.137);
+    transition: border 0.2s ease-in-out;
+}
+
+#search input:focus {
+    outline: none;
+    border: 3px solid rgba(52, 181, 241, 0.767);
+}
+
+/* Results */
+#results {
+    overflow-y: scroll;
+
+    /* TODO: 
+            modify #results to have a similar 
+            layout to rooms, then once the user
+            starts typing in a query, swap the
+            layout for something more appropriate.
+            
+            e.g. YouTube's homepage VS search results
+    
+    */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search-result {
+    width: 30%;
+    margin-top: 15px;
+}
+
+.search-result-thumbnail {
+    height: 100px;
+    background-color: rgb(88, 84, 122);
+}
+
+.search-result-label {
+    padding: 4px;
+    font-size: 1.2em;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    background-color: rgba(238, 238, 238, 0.466);
+}

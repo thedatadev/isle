@@ -7,6 +7,7 @@ import './Dashboard.css'
 
 // Subcomponents
 import Rooms from '../Main/Rooms/Rooms'
+import Models from '../Main/Models/Models'
 
 function Main() {
 
@@ -14,7 +15,9 @@ function Main() {
 
         <div id="main">
 
-            <Rooms />
+            {/* <Rooms /> */}
+
+            <Models />
 
         </div>
 
