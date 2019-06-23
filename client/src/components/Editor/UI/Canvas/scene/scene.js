@@ -87,17 +87,6 @@ function playScene(container, addObjects) {
 
         loader.load( model.uri, function (gltf) {
 
-
-            // let object = gltf.scene;
-
-            // scene.add( object );
-
-            // object.scale.set( model.scale.x, model.scale.y, model.scale.z );
-            // object.rotation.set( model.rotation.x, model.rotation.y, model.rotation.z );
-            // object.position.set( model.position.x, model.position.y, model.position.z );
-
-            // objects.push(object)
-
             gltf.scene.traverse( function( object ) {
                 // https://discourse.threejs.org/t/gltf-loaded-object-drag-and-drop/2285/4
     
@@ -105,9 +94,13 @@ function playScene(container, addObjects) {
 
                     scene.add( object );
 
-                    object.scale.set( model.scale.x, model.scale.y, model.scale.z );
-                    object.rotation.set( model.rotation.x, model.rotation.y, model.rotation.z );
-                    object.position.set( model.position.x, model.position.y, model.position.z );
+                    console.log(object);
+                    object.scale.set( object.scale.x * 0.5, 
+                                      object.scale.y * 0.5, 
+                                      object.scale.z * 0.5 );
+                    object.position.set( object.position.x * 0.5, 
+                                         object.position.y * 0.5, 
+                                         object.position.z * 0.5 );
 
                     objects.push( object );
 
@@ -125,9 +118,9 @@ function playScene(container, addObjects) {
         setupPlane()
 
         loadModel({
-            id: "bed-id",
-            name: "bed",
-            uri: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Fbed.glb",
+            id: "chair-id",
+            name: "chair",
+            uri: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Fchair.glb",
             position: { x: 0.0, y: 0.0, z: 0.0 },
             rotation: { x: 0.0, y: 0.0, z: 0.0 },
             scale:    { x: 0.5, y: 0.5, z: 0.5 },

@@ -1,3 +1,1 @@
-1. Re-export 3D models to fix mesh transform inconsistencies
-
-2. Enforce display condition on canvas component to prevent premature rendering
+- Enforce display condition on canvas component to prevent premature rendering
