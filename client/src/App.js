@@ -2,10 +2,8 @@
 // Dependencies
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-
-
-// Assets
-import './App.css';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 
 
 // Components
@@ -14,24 +12,40 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Editor from './components/Editor/Editor';
 
 
+// Styling
+import './App.css';
+
+
+// GraphQL, Apollo client setup
+const port = process.env.port || 4000;
+const apolloClient = new ApolloClient({
+  uri: `http://127.0.0.1:${port}/graphql`
+});
+
+
+
 
 function Mobile() {
 
   return (
 
-    <BrowserRouter>
+    <ApolloProvider client={apolloClient}>
 
-      <div className="App">
+      <BrowserRouter>
 
-        <Route exact path="/" component={Home} />
+        <div className="App">
 
-        <Route path="/user" component={Dashboard} />
+          <Route exact path="/" component={Home} />
 
-        <Route path="/editor" component={Editor} />
+          <Route path="/user" component={Dashboard} />
 
-      </div>
+          <Route path="/editor" component={Editor} />
 
-    </BrowserRouter>
+        </div>
+
+      </BrowserRouter>
+
+    </ApolloProvider>
 
   );
 

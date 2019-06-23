@@ -1,15 +1,24 @@
+
+// Dependencies
 import React from 'react'
 
+
+// GraphQL
+import { graphql } from 'react-apollo';
+import { getRoomByID } from '../../../../api/graphql/queries';
+
+
+// Styling
 import './Panel.css'
 
 
-function Model() {
+function Model(props) {
 
     return (
 
         <div className="model">
 
-
+            {/* TODO: Model Thumbnail */}
 
         </div>
 
@@ -18,35 +27,43 @@ function Model() {
 }
 
 
-function Palette() {
+function Models(props) {
 
-    return (
+    return props.models.map(model => {
 
-        <div id="palette">
+        return <Model model={model} key={model.id}/>
 
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
-            <Model />
+    });
 
-        </div>
+}
 
-    );
+
+function Palette(props) {
+
+
+    if ( props.models && props.models.length > 0 ) {
+
+        return (
+
+            <div id="palette">
+
+                <Models models={props.models}/>
+
+            </div>
+
+        );
+
+        
+
+    } else {
+
+        return (
+        
+            <div id="empty-palette">No models to display.</div>
+            
+        );
+
+    }
 
 }
 
@@ -72,7 +89,17 @@ function Header() {
 }
 
 
-function Panel() {
+function Panel(props) {
+
+    function models() {
+
+        if ( props.data.loading ) return [];
+
+        if ( !props.data.room ) return [];
+
+        return props.data.room.modelObjects;
+
+    }
 
     return (
 
@@ -80,7 +107,7 @@ function Panel() {
 
             <Header />
 
-            <Palette />
+            <Palette models={models()} />
 
         </div>
 
@@ -89,4 +116,4 @@ function Panel() {
 }
 
 
-export default Panel;
+export default graphql(getRoomByID)(Panel);
