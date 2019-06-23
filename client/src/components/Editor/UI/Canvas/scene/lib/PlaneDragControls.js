@@ -31,8 +31,13 @@ var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls
         Converts 2D viewport mouse coordinates into 3D clipspace coordinates
         */
 
-        mouse.x = ( ( event.clientX - canvasBorder.left ) / canvasBorder.width ) * 2 - 1;
-        mouse.y = - ( ( event.clientY - canvasBorder.top ) / canvasBorder.height ) * 2 + 1;
+        let clientX = event.touches[0].clientX;
+        let clientY = event.touches[0].clientY;
+
+        mouse.x = ( ( clientX - canvasBorder.left ) / canvasBorder.width ) * 2 - 1;
+        mouse.y = - ( ( clientY - canvasBorder.top ) / canvasBorder.height ) * 2 + 1;
+
+        console.log(`Mouse position = x: ${mouse.x} y: ${mouse.y}`);
 
     }
 
@@ -56,7 +61,13 @@ var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls
 
         if ( intersectingObjects.length > 0 ) {
 
+            console.log("Selected nearest object!");
+
             selected = intersectingObjects[0];
+
+        } else {
+
+            console.log("Nothing to select!");
 
         }
 
@@ -112,25 +123,49 @@ var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls
 
         event.preventDefault();
 
+
+        console.log("\n\n");
+        // event = event.changedTouches[0];
+
+
         console.log( "Event handler: select" );
 
         if ( selected === null ) {
 
-            getMousePosition();
+            console.log("Selected is null")
+            console.log("Trying to update selected object")
+
+            getMousePosition(event);
             reorientRaycaster();
             selectNearestObject();
 
+
             if ( selected !== null ) {
 
+                console.log("Selected is not null after raycasting")
+
                 if ( raycasterIntersectsPlane() ) {
+                    console.log("Raycaster intersects plane")
 
                     updateOffsetFromPlane();
+
+                } else {
+
+                    console.log("Raycaster does not intersect plane")
 
                 }
 
                 enable();
 
+            } else {
+
+                console.log("Selected is STILL null even after raycasting")
+
             }
+
+        } else {
+
+            console.log("Selected is NOT null")
 
         }
 
@@ -142,11 +177,14 @@ var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls
         Updates the position of the currently selected object
         */ 
 
+
         console.log( "Event handler: drag" );
 
         event.preventDefault();
+        // event = event.changedTouches[0];
 
-        getMousePosition();
+
+        getMousePosition(event);
         reorientRaycaster();
 
         if ( raycasterIntersectsPlane() ) {
@@ -193,6 +231,9 @@ var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls
         canvas.addEventListener( "mousemove", drag );
         canvas.addEventListener( "mouseup",   drop );
 
+        canvas.addEventListener( "touchmove", drag );
+        canvas.addEventListener( "touchend",  drop );
+
     }
 
 
@@ -200,6 +241,9 @@ var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls
 
         canvas.removeEventListener( "mousemove", drag );
         canvas.removeEventListener( "mouseup",   drop );
+
+        canvas.removeEventListener( "touchmove", drag );
+        canvas.removeEventListener( "touchend",  drop );
 
         cameraControls.enabled = true;
 
@@ -210,12 +254,8 @@ var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls
 
     // Listen for object selections
     canvas.addEventListener("mousedown", select);
+    canvas.addEventListener("touchstart", select);
 
-    canvas.addEventListener("touchstart", function(e) {
-
-        console.log("touchstart");
-
-    });
 
 }
 

@@ -87,15 +87,33 @@ function playScene(container, addObjects) {
 
         loader.load( model.uri, function (gltf) {
 
-            let object = gltf.scene;
 
-            scene.add( object );
+            // let object = gltf.scene;
 
-            object.scale.set( model.scale.x, model.scale.y, model.scale.z );
-            object.rotation.set( model.rotation.x, model.rotation.y, model.rotation.z );
-            object.position.set( model.position.x, model.position.y, model.position.z );
+            // scene.add( object );
 
-            objects.push(object)
+            // object.scale.set( model.scale.x, model.scale.y, model.scale.z );
+            // object.rotation.set( model.rotation.x, model.rotation.y, model.rotation.z );
+            // object.position.set( model.position.x, model.position.y, model.position.z );
+
+            // objects.push(object)
+
+            gltf.scene.traverse( function( object ) {
+                // https://discourse.threejs.org/t/gltf-loaded-object-drag-and-drop/2285/4
+    
+                if ( object.isMesh ) {
+
+                    scene.add( object );
+
+                    object.scale.set( model.scale.x, model.scale.y, model.scale.z );
+                    object.rotation.set( model.rotation.x, model.rotation.y, model.rotation.z );
+                    object.position.set( model.position.x, model.position.y, model.position.z );
+
+                    objects.push( object );
+
+                }
+                
+            } );
 
         });
 
