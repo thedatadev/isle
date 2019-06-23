@@ -1,18 +1,22 @@
 import React, { useEffect, useRef } from 'react'
 
-// import SceneManager from '../../../../scene/manager.js
+import playScene from './scene/scene'
+
+import './Canvas.css'
+
 
 function Canvas() {
 
-    let canvas = useRef(null);
+    let container = useRef(null);
 
-    setCanvas = element => {
-        canvas = element;
+    function setCanvas(element) {
+        container = element;
     }
 
     useEffect(() => {
 
         // Three.js code goes here
+        playScene(container)
 
     });
 

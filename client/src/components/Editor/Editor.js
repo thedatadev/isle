@@ -2,6 +2,7 @@ import React from 'react'
 
 import './Editor.css'
 
+import Canvas from './UI/Canvas/Canvas'
 import Panel from './UI/Panel/Panel'
 
 function EditorUI() {
@@ -9,6 +10,8 @@ function EditorUI() {
     return (
 
         <div id="editor-ui">
+
+            <Canvas />
 
             <Panel />
 

@@ -33,7 +33,7 @@ function Credential(props) {
 
             <div className="credential-label">{props.label}</div>
 
-            <input className="credential-value" type={props.inputType} value={props.inputValue} />
+            <input readOnly className="credential-value" type={props.inputType} value={props.inputValue} />
 
         </div>
 

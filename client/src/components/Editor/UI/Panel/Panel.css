@@ -4,8 +4,9 @@
     top: 0;
     right: 0;
     height: 100vh;
-    background-color: rgba(34, 33, 54, 0.096);
+    background-color: rgb(255, 255, 255);
     width: 160px;
+    /* z-index: 2; */
 }
 
 #panel-header {
