@@ -7,6 +7,16 @@ import Panel from './UI/Panel/Panel'
 
 function EditorUI() {
 
+    // TODO:
+
+    // 1. Replace EditorUI with Canvas
+
+    // 2. Invoke a setupCanvas function from scene/scene
+
+    // 3. Return a canvas object with public methods including 'loadModel'
+
+    // 4. Pass canvas.loadModel into Panel i.e. <Panel loadModel={canvas.loadModel}/>
+
     return (
 
         <div id="editor-ui">
@@ -30,6 +40,7 @@ function Editor() {
 
             <div id="editor-landscape">
                 
+                {/* <Canvas /> */}
                 <EditorUI />
 
             </div>

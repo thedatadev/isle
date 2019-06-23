@@ -1,1 +1,3 @@
 - Enforce display condition on canvas component to prevent premature rendering
+
+- see todo list in Editor.js
