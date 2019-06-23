@@ -5,8 +5,10 @@
     Given a PlaneGeometry object, enable dragging of objects along the planes surface.
 
 */ 
+import * as THREE from 'three';
 
-PlaneDragControls = function( camera, objects, canvas, plane, orbitControls ) {
+
+var PlaneDragControls = function( camera, objects, canvas, plane, cameraControls ) {
 
     // --------------- State ---------------
     
@@ -24,7 +26,7 @@ PlaneDragControls = function( camera, objects, canvas, plane, orbitControls ) {
 
     // --------------- Helper ---------------
 
-    function getMousePosition() {
+    function getMousePosition(event) {
         /*
         Converts 2D viewport mouse coordinates into 3D clipspace coordinates
         */
@@ -186,7 +188,7 @@ PlaneDragControls = function( camera, objects, canvas, plane, orbitControls ) {
 
     function enable() {
 
-        orbitControls.enabled = false;
+        cameraControls.enabled = false;
 
         canvas.addEventListener( "mousemove", drag );
         canvas.addEventListener( "mouseup",   drop );
@@ -199,7 +201,7 @@ PlaneDragControls = function( camera, objects, canvas, plane, orbitControls ) {
         canvas.removeEventListener( "mousemove", drag );
         canvas.removeEventListener( "mouseup",   drop );
 
-        orbitControls.enabled = true;
+        cameraControls.enabled = true;
 
         canvas.style.cursor = "auto";
         
@@ -209,5 +211,13 @@ PlaneDragControls = function( camera, objects, canvas, plane, orbitControls ) {
     // Listen for object selections
     canvas.addEventListener("mousedown", select);
 
+    canvas.addEventListener("touchstart", function(e) {
+
+        console.log("touchstart");
+
+    });
 
 }
+
+
+export { PlaneDragControls };

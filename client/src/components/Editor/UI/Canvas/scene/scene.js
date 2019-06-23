@@ -1,8 +1,12 @@
+// Dependencires - node_modules
 import * as THREE from 'three'
-import OrbitControls from 'three-orbitcontrols'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // import { DeviceOrientationControls } from 'three/examples/jsm/controls/DeviceOrientationControls'
 // import { StereoEffect } from 'three/examples/jsm/effects/StereoEffect'
+
+// Dependencies - internal libs
+import { PlaneDragControls } from './lib/PlaneDragControls'
 
 
 function playScene(container, addObjects) {
@@ -11,7 +15,11 @@ function playScene(container, addObjects) {
 
     let cameraControls, orbitControls, deviceControls;
 
+    let dragControls, plane;
+
     let loader;
+
+    let objects = [];
 
     function init() {
         // Initialise all the basic three.js elements
@@ -31,7 +39,7 @@ function playScene(container, addObjects) {
             color: "rgb(190, 165, 155)", 
             side: THREE.DoubleSide
         } );
-        let plane = new THREE.Mesh( planeGeometry, planeMaterial );
+        plane = new THREE.Mesh( planeGeometry, planeMaterial );
         // plane.position.y = - 1;
         plane.rotation.x = Math.PI / 2;
         scene.add( plane );	
@@ -39,6 +47,10 @@ function playScene(container, addObjects) {
     }
     
     function setup(container) {
+
+        // Model GLTF/GLB Loader
+        loader = new GLTFLoader();
+
         // Set up the canvas, scene, lighting etc.
         let canvas = renderer.domElement;
         container.appendChild(canvas)
@@ -58,12 +70,17 @@ function playScene(container, addObjects) {
         orbitControls.rotateSpeed = 1 / 2;
         orbitControls.enableZoom = true;
         orbitControls.zoomSpeed = 1 / 2;
-        // orbitControls.minPolarAngle = Math.PI / 3;
-        // orbitControls.maxPolarAngle = Math.PI / 3;
+        orbitControls.minPolarAngle = Math.PI / 3;
+        orbitControls.maxPolarAngle = Math.PI / 3;
         cameraControls = orbitControls;
 
-        // Model GLTF/GLB Loader
-        loader = new GLTFLoader();
+        // Populate the scene
+        populate();
+
+        // Plane Drag Controls
+        dragControls = new PlaneDragControls( camera, objects, canvas, plane, cameraControls );
+
+        
     }
 
     function loadModel(model) {
@@ -78,11 +95,12 @@ function playScene(container, addObjects) {
             object.rotation.set( model.rotation.x, model.rotation.y, model.rotation.z );
             object.position.set( model.position.x, model.position.y, model.position.z );
 
+            objects.push(object)
+
         });
 
-    }
 
-    
+    }
 
     function populate() {
         // Add object to the scene
@@ -98,7 +116,7 @@ function playScene(container, addObjects) {
         });
 
 
-        camera.position.z = 5;
+        // camera.position.z = 5;
     }
 
     function animate() {
@@ -114,7 +132,7 @@ function playScene(container, addObjects) {
 
     setup(container);
 
-    populate();
+    
 
     animate();
 
