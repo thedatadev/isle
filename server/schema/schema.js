@@ -29,7 +29,8 @@ const ModelType = new GraphQLObjectType({
         uri:      { type: GraphQLString },
         position: { type: Vector3DType },
         rotation: { type: Vector3DType },
-        scale:    { type: Vector3DType }
+        scale:    { type: Vector3DType },
+        icon:     { type: GraphQLString },
 
 
     })

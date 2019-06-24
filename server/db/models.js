@@ -7,6 +7,7 @@ const models = [
         position: { x: 0.0, y: 0.0, z: 0.0 },
         rotation: { x: 0.0, y: 0.0, z: 0.0 },
         scale:    { x: 0.5, y: 0.5, z: 0.5 },
+        icon: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Fchair.png"
     },
 
     {
@@ -16,6 +17,7 @@ const models = [
         position: { x: 0.0, y: 0.0, z: 0.0 },
         rotation: { x: 0.0, y: 0.0, z: 0.0 },
         scale:    { x: 0.5, y: 0.5, z: 0.5 },
+        icon: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Fbookshelf.png"
     },
 
     {
@@ -25,6 +27,7 @@ const models = [
         position: { x: 0.0, y: 0.0, z: 0.0 },
         rotation: { x: 0.0, y: 0.0, z: 0.0 },
         scale:    { x: 0.5, y: 0.5, z: 0.5 },
+        icon: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Ffloor-lamp.png"
     },
 
     {
@@ -34,6 +37,7 @@ const models = [
         position: { x: 0.0, y: 0.0, z: 0.0 },
         rotation: { x: 0.0, y: 0.0, z: 0.0 },
         scale:    { x: 0.5, y: 0.5, z: 0.5 },
+        icon: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Ftable.png"
     },
 
     {
@@ -43,6 +47,7 @@ const models = [
         position: { x: 0.0, y: 0.0, z: 0.0 },
         rotation: { x: 0.0, y: 0.0, z: 0.0 },
         scale:    { x: 0.5, y: 0.5, z: 0.5 },
+        icon: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Fbed.png"
     },
 
 ];
