@@ -26,11 +26,14 @@
 
 #palette .model {
     display: inline-block;
-    height: 70px;
-    width: 70px;
     background-color: rgba(34, 33, 54, 0.103);
     margin: 10px auto;
     border-radius: 10px;
+}
+
+#palette .model, .model-icon {
+    height: 70px;
+    width: 70px;
 }
 
 #enter-vr {
@@ -42,4 +45,6 @@
 
 #enter-vr i {
     font-size: 2.5em;
+    color: rgb(124, 134, 175);
 }
+

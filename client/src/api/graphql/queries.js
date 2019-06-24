@@ -13,6 +13,7 @@ const getRoomByID = gql`
                 position { x y z }
                 rotation { x y z }
                 scale    { x y z }
+                icon
             }
 
         }

@@ -11,13 +11,13 @@ import { getRoomByID } from '../../../../api/graphql/queries';
 // Styling
 import './Panel.css'
 
-function Header() {
+function Header(props) {
     
     return (
 
         <div id="panel-header">
 
-            <p>Panel Header</p>
+            <p>{props.title}</p>
 
             {/* Save */}
 
@@ -30,8 +30,6 @@ function Header() {
     );
 
 }
-
-
 
 
 function Palette(props) {
@@ -60,9 +58,13 @@ function Palette(props) {
 
 }
 
+
 function Models(props) {
 
     return props.models.map(model => {
+
+        console.log(model);
+        console.log("\n\n");
 
         return (
 
@@ -70,7 +72,7 @@ function Models(props) {
                  key={model.id} 
                  onClick={ _ => props.addObject(model) }>
 
-                {model.name}
+                <img className="model-icon" src={model.icon} alt={model.id}/>
 
             </div>
 
@@ -134,11 +136,21 @@ function Panel(props) {
 
     }
 
+    function title() {
+
+        if ( props.data.loading ) return "Room Title";
+
+        if ( !props.data.room ) return "Room Title";
+
+        return props.data.room.name;
+
+    }
+
     return (
 
         <div id="panel">
 
-            <Header />
+            <Header title={title()}/>
 
             <Palette models={models()} addObject={props.addObject}/>
 
