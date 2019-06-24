@@ -23,18 +23,14 @@ app.use('/graphql', graphqlHTTP({
 
 // Route Handlers
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-const distPath = process.env.NODE_ENV === 'production' ? 'client/build' : 'client/public';
-
-app.use( express.static( path.join( __dirname, distPath )));   
-
-app.get('*', function( _, response ) {
-
-    response.sendfile( path.join( __dirname, `${distPath}/index.html` )); 
-
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
-
-
 
 
 
