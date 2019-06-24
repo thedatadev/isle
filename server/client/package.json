@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://127.0.0.1:4000",
   "dependencies": {
     "apollo-boost": "^0.4.3",
     "graphql": "^14.3.1",

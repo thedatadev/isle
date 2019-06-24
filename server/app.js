@@ -2,6 +2,7 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const cors = require('cors');
+const path = require('path');
 
 
 // Dependencies - internal libs
@@ -21,7 +22,20 @@ app.use('/graphql', graphqlHTTP({
 
 
 // Route Handlers
-// ...
+
+
+const distPath = process.env.NODE_ENV === 'production' ? '../client/build' : '../client/public';
+
+app.use( express.static( path.join( __dirname, distPath )));   
+
+app.get('*', function( _, response ) {
+
+    response.sendfile( path.join( __dirname, `${distPath}/index.html` )); 
+
+});
+
+
+
 
 
 // Response Middleware
