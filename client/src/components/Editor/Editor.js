@@ -19,7 +19,7 @@ function EditorUI() {
 
             <Scene mountCanvas={editor.mountCanvas} animate={editor.animate} />
 
-            <Panel addObject={editor.addObject}/>
+            <Panel addObject={editor.addObject} enterVR={editor.enterVR}/>
 
         </div>
 

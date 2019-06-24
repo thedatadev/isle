@@ -83,14 +83,18 @@ function Models(props) {
 }
 
 
-function EnterVR() {
+
+
+function EnterVR(props) {
 
     function enterVRMode(event) {
 
         event.preventDefault();
         event.stopImmediatePropagation(); // https://stackoverflow.com/questions/12052132/jquery-mobile-click-event-binding-twice
 
-        console.log("Entering VR mode!")
+        console.log("Entering VR mode!");
+
+        props.enterVR();
 
     }
 
@@ -154,7 +158,7 @@ function Panel(props) {
 
             <Palette models={models()} addObject={props.addObject}/>
 
-            <EnterVR />
+            <EnterVR enterVR={ props.enterVR }/>
 
         </div>
 
