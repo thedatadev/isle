@@ -39,7 +39,7 @@ app.get('*', (req, res) => {
 
 
 // Listen and Serve
-const port = process.env.port || 4000;
+const port = process.env.PORT || 4000;
 app.listen(port, function() {
     console.log(`[ isle-server ] - Now listening on http://127.0.0.1:${port}/`);
 });
