@@ -19,7 +19,7 @@ function setupEditor() {
 
     let loader;
 
-    let objects = []; // NOTE: There may be a problem in dragging new objects added to this array
+    let objects = []; 
     
     // ------------ Setting up the editor scene ----------------
 
@@ -115,16 +115,7 @@ function setupEditor() {
 
     return {
 
-        // const editor = setupEditor();
-        // <Panel loadModel={editor.loadModel}/>
-        // <Scene mountCanvas={editor.mountCanvas}/>
-
         mountCanvas: (canvasContainer) => {
-
-            console.log("mounting canvas!", canvasContainer)
-
-            // In the Scene component,
-            // call mountCanvas(containerRef) in a use(Layout)Effect hook
 
             canvasContainer.appendChild(canvas)
 
@@ -133,6 +124,9 @@ function setupEditor() {
         addObject: (model) => {
 
             loadModel(model)
+
+            // NOTE: re-instantition is required each time a new object is added to the scene and objects array
+            dragControls = new PlaneDragControls( camera, objects, canvas, plane, cameraControls );
 
         },
 

@@ -80,8 +80,6 @@ function EditorUI2() {
 
     const editor = setupEditor();
 
-    console.log(editor);
-
     return (
 
         <div id="editor-ui">
