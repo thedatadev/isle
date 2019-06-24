@@ -137,25 +137,27 @@ function setupEditor() {
 
         enterVR: () => {
 
+            // NOTE: HTTPs is required to detect deviceorientation events
+
             document.querySelector("#panel").style.display = "none";
         
-            camera.position.set( 0, 0, 0 );
-    
+            camera.position.set( 0, -2, 5 );
+
+
             function setOrientationControls(e) {
     
                 if ( !e.alpha ) {
                     return;
                 }
         
-                let deviceControls = new DeviceOrientationControls( camera, true );
-                cameraControls = deviceControls;
+                cameraControls = new DeviceOrientationControls( camera, true );
                 cameraControls.connect();
                 cameraControls.update();
         
                 window.removeEventListener('deviceorientation', setOrientationControls, true);
-                }
+            }
 
-                window.addEventListener('deviceorientation', setOrientationControls, true);
+            window.addEventListener('deviceorientation', setOrientationControls, true);
     
         }
 
