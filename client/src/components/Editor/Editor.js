@@ -1,36 +1,102 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import './Editor.css'
 
-import Canvas from './UI/Canvas/Canvas'
 import Panel from './UI/Panel/Panel'
+import setupEditor from './UI/Canvas/scene/scene2'
 
-function EditorUI() {
 
-    // TODO:
+// function EditorUI() {
 
-    // 1. Replace EditorUI with Canvas
+//     /** 
+//      * Problem:
+//      * 
+//      * We need the scene to instantiate before render so that we can pass 
+//      * it down to the Panel component.
+//      * 
+//      * The canvas must be appended to the container once the container 
+//      * has fully rendered/mounted, or else we would be trying to append to null
+//      * 
+//      * */ 
 
-    // 2. Invoke a setupCanvas function from scene/scene
 
-    // 3. Return a canvas object with public methods including 'loadModel'
+//     //  SOLUTION: Re-design the structure of this component tree from the ground up!
 
-    // 4. Pass canvas.loadModel into Panel i.e. <Panel loadModel={canvas.loadModel}/>
+//     let container = useRef(null);
+
+//     let canvas;
+
+//     useEffect(() => {
+
+//         // NOTE: useLayoutEffect may be better for large components because we need 
+//         //       the component to render before we can setup the canvas container
+//         let canvas = setupCanvas(container);
+
+//         console.log("canvas hook", canvas);
+
+//     });
+
+//     console.log("canvas out", canvas);
+    
+    
+//     return (
+
+//         <div id="editor-ui">
+
+//             {/* TODO: turn this into its own standalone component?... */}
+//             <div id="canvas-container" ref={element => container = element}></div>
+
+//             <Panel canvas={canvas}/>
+
+//         </div>
+
+//     );
+
+// }
+
+
+function Scene(props) {
+
+    let canvasContainer = useRef(null);
+
+    useEffect(() => {
+
+        props.mountCanvas(canvasContainer);
+
+        props.animate();
+
+    });
 
     return (
 
-        <div id="editor-ui">
-
-            <Canvas />
-
-            <Panel />
-
-        </div>
+        <div id="canvas-container" ref={ element => canvasContainer = element }></div>
 
     );
 
 }
 
+
+function EditorUI2() {
+
+    const editor = setupEditor();
+
+    console.log(editor);
+
+    return (
+
+        <div id="editor-ui">
+
+            <Scene mountCanvas={editor.mountCanvas} animate={editor.animate} />
+
+
+            <Panel addObject={editor.addObject}/>
+
+        </div>
+
+
+    );
+
+}
 
 function Editor() {
 
@@ -40,8 +106,7 @@ function Editor() {
 
             <div id="editor-landscape">
                 
-                {/* <Canvas /> */}
-                <EditorUI />
+                <EditorUI2 />
 
             </div>
 

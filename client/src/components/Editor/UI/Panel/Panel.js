@@ -12,84 +12,77 @@ import { getRoomByID } from '../../../../api/graphql/queries';
 import './Panel.css'
 
 
-function Model(props) {
-
-    return (
-
-        <div className="model">
-
-            {/* TODO: Model Thumbnail */}
-
-        </div>
-
-    );
-
-}
-
-
-function Models(props) {
-
-    return props.models.map(model => {
-
-        return <Model model={model} key={model.id}/>
-
-    });
-
-}
-
-
-function Palette(props) {
-
-
-    if ( props.models && props.models.length > 0 ) {
-
-        return (
-
-            <div id="palette">
-
-                <Models models={props.models}/>
-
-            </div>
-
-        );
-
-        
-
-    } else {
-
-        return (
-        
-            <div id="empty-palette">No models to display.</div>
-            
-        );
-
-    }
-
-}
-
-
-function Header() {
-
-    return (
-
-        <div id="panel-header">
-
-            <p>Panel Header</p>
-
-            {/* Save */}
-
-            {/* Minimize */}
-
-            {/* Settings */}
-
-        </div>
-
-    );
-
-}
-
 
 function Panel(props) {
+
+
+    function Models(props) {
+
+        return props.models.map(model => {
+    
+            return (
+    
+                <div className="model"
+                     key={model.id} 
+                     onClick={ _ => props.addObject(model) }>
+    
+                    {model.name}
+    
+                </div>
+    
+            );
+    
+        });
+    
+    }
+    
+    
+    function Palette(props) {
+    
+        if ( props.models && props.models.length > 0 ) {
+    
+            return (
+    
+                <div id="palette">
+    
+                    <Models models={props.models} addObject={props.addObject}/>
+    
+                </div>
+    
+            );
+    
+        } else {
+    
+            return (
+            
+                <div id="empty-palette">No models to display.</div>
+                
+            );
+    
+        }
+    
+    }
+    
+    
+    function Header() {
+    
+        return (
+    
+            <div id="panel-header">
+    
+                <p>Panel Header</p>
+    
+                {/* Save */}
+    
+                {/* Minimize */}
+    
+                {/* Settings */}
+    
+            </div>
+    
+        );
+    
+    }
 
     function models() {
 
@@ -107,7 +100,7 @@ function Panel(props) {
 
             <Header />
 
-            <Palette models={models()} />
+            <Palette models={models()} addObject={props.addObject}/>
 
         </div>
 

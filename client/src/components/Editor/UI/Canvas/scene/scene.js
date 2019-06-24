@@ -9,7 +9,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { PlaneDragControls } from './lib/PlaneDragControls'
 
 
-function playScene(container, addObjects) {
+function setupCanvas(container) {
 
     let scene, camera, renderer;
 
@@ -74,16 +74,17 @@ function playScene(container, addObjects) {
         orbitControls.maxPolarAngle = Math.PI / 3;
         cameraControls = orbitControls;
 
-        // Populate the scene
-        populate();
+        // Render plane
+        setupPlane();
 
         // Plane Drag Controls
         dragControls = new PlaneDragControls( camera, objects, canvas, plane, cameraControls );
-
         
     }
 
     function loadModel(model) {
+
+        console.log("loading -----> ", model);
 
         loader.load( model.uri, function (gltf) {
 
@@ -110,25 +111,8 @@ function playScene(container, addObjects) {
 
         });
 
-
     }
 
-    function populate() {
-        // Add object to the scene
-        setupPlane()
-
-        loadModel({
-            id: "chair-id",
-            name: "chair",
-            uri: "https://cdn.glitch.com/56c001f0-5c8d-45df-a008-23bbde1d84a4%2Fchair.glb",
-            position: { x: 0.0, y: 0.0, z: 0.0 },
-            rotation: { x: 0.0, y: 0.0, z: 0.0 },
-            scale:    { x: 0.5, y: 0.5, z: 0.5 },
-        });
-
-
-        // camera.position.z = 5;
-    }
 
     function animate() {
         // Animate the scene
@@ -143,14 +127,13 @@ function playScene(container, addObjects) {
 
     setup(container);
 
-    
-
     animate();
+
+    return { loadModel };
 
 }
 
 
-
-export default playScene;
+export default setupCanvas;
 
 
