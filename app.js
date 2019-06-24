@@ -24,7 +24,7 @@ app.use('/graphql', graphqlHTTP({
 // Route Handlers
 
 
-const distPath = process.env.NODE_ENV === 'production' ? '../client/build' : '../client/public';
+const distPath = process.env.NODE_ENV === 'production' ? 'client/build' : 'client/public';
 
 app.use( express.static( path.join( __dirname, distPath )));   
 
