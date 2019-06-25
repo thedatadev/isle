@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './Editor.css'
 
@@ -71,15 +71,42 @@ function Portrait() {
 
 function Editor() {
 
-    return (
+    function getOrientation() {
 
-        // TODO: proper conditional rendering
+        return window.matchMedia("(orientation: portrait)").matches ? 'portrait' : 'landscape';
+
+    }
+
+    function handleOrientationChange(event) {
+
+        event.preventDefault();
+
+        setOrientation(getOrientation());
+
+    }
+
+    let [ orientation, setOrientation ] = useState(getOrientation());
+
+
+    useEffect(() => {
+
+        window.addEventListener("resize", handleOrientationChange);
+
+        return function() {
+
+            window.removeEventListener("resize", handleOrientationChange);
+
+        }
+
+    });
+
+    return (
 
         <div id="editor">
 
-            <Portrait/>
+            { orientation === 'portrait' && <Portrait/> }
 
-            <Landscape/>
+            { orientation === 'landscape' && <Landscape/> }
 
         </div>
 
