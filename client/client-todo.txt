@@ -1,0 +1,91 @@
+
+
+Milestones:
+
+
+- Maintain state of editor on orientation change OR make landscape the default orientation
+
+1. Maintaining state can be done using redux (possibly contexts?)
+
+2. Check if there is a JavaScript function I can use to keep a landscape orientation
+
+- Modify room schema to include categories
+
+- GraphQL query to fetch user's rooms
+
+- Display rooms by category(ies)
+
+1. Each carousel would have its own GraphQL query with category as a parameter
+
+- Create more 3D models - either by duplicating and recolouring, or building more in Blender
+
+1. Picnic table w/ seats (table surface is made of planks/panels)
+
+2. BBQ grill (circle-shaped one)
+
+3. Soccerball
+
+4. Tree (cylinder trunks/branches and spheres for leaves)
+
+5. 
+
+- Modify the model schema to include categories
+
+- GraphQL query to fetch 3D models
+
+- Display models by category(ies)
+
+- Enable a search filter on 3D models
+
+1. Recycle the search filter from the RNN visual project
+
+- Create transform controls for all objects in the scene
+
+1. Use FontAwesome icons
+
+2. Display move, rotate and scale icons in top left
+
+- Save the state of a room and the transform properties of all objects in the scene
+
+1. Extract the default transform and clone it into a global variable OR just use the 'objects' array
+
+2. Pass the global variable to the transform controls handler
+
+3. Allow the transform controls handler to update the transform properties of each object ( perhaps via a public function )
+
+- Modify the room schema to include a timestamp
+
+- Modify the room schema to include an icon URI
+
+- Create CRUD GraphQL mutation queries to save new rooms and update existing rooms
+
+- Upon saving a room, generate a screen shot of the scene, upload it to a CDN, and update the room's icon URI
+
+1. Capture image binary
+
+2. Package it in the request payload
+
+3. On the server side, send it to a CDN and receive back a URI
+
+4. Update the room's icon URI
+
+- Create a stereo effect during VR mode
+
+- Overlay goggle-shaped lenses over the VR screen (try it first, then decide whether to keep it)
+
+- Create a button to exit VR mode
+
+1. Make it an 'X' on the top right corner
+
+
+Stretch goals:
+
+- Find out how to map React components to React Native components
+
+- Create a user schema
+
+- Give each room a user ID
+
+- Enable basic registration and sign in, and see how this is achieved with React Native
+
+
