@@ -1,6 +1,7 @@
 # isle
 Immersive secondary language education (isle)
 
+https://user-images.githubusercontent.com/48514825/130351779-2011705c-5d87-469b-8e7b-d6e0d0854bfe.mp4
 
 ## Problem
 The most effective form of foreign language pedagogy is studying abroad. This however can be prohibitive for many reasons e.g. cost of airfare, language schools and accommodation. How can we use current technology to simulate the immersive experience of being abroad, whilst being a cheaper and more accessible alternative?
